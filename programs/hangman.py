@@ -1,4 +1,5 @@
 import random
+import os
 
 def get_word_from_file(filename):
     try:
@@ -48,7 +49,8 @@ def play_hangman(word):
         print(f"\033[31mGame over! The word was: {word}")
 
 def main():
-    filename = "words.txt"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    filename = os.path.join(script_dir, "words.txt")
     word = get_word_from_file(filename)
     if word:
         play_hangman(word)
